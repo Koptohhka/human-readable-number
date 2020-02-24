@@ -3,6 +3,7 @@ module.exports = function toReadable (num) {
 
     let numberObject = {
         lowerThanTen: {
+            0: 'zero',
             1: 'one',
             2: 'two',
             3: 'three',
@@ -43,7 +44,7 @@ module.exports = function toReadable (num) {
         return numberObject.lowerThanTen[num.toString()];
     } else if (num > 10 && num <= 20) {
         return numberObject.lowerThanTen[numToStr];
-    } else if (numToStr[numToStr.length - 1] === '0') {
+    } else if (numToStr[numToStr.length - 1] === '0' && numToStr.length < 3) {
         return numberObject.highterThanTen[numToStr];
     } else if (num > 20 && num < 100) {
         return numberObject.highterThanTen[Math.floor((numToStr / 10)) + '0']  + ' ' + numberObject.lowerThanTen[numToStr[numToStr.length - 1]];
